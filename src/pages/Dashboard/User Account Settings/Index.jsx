@@ -338,6 +338,19 @@ export default function UserAccountSettingPage() {
                 </label>
               </label>
             </div>
+            <div className="flex items-center gap-5 ">
+              <span className="text-[20px] font-bold font-sansation text-charcoal">
+                SMS
+              </span>
+
+              <label className="inline-flex items-center cursor-pointer">
+                <input type="checkbox" className="sr-only peer" />
+                <label className="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" className="sr-only peer" />
+                  <div className="w-11 h-6 bg-[#D9D9D9] peer-checked:bg-[#123E41] rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                </label>
+              </label>
+            </div>
           </div>
         </div>
         <div className="mb-2">
