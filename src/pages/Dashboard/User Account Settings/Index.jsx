@@ -133,7 +133,7 @@ export default function UserAccountSettingPage() {
         {/* Birthday */}
         <div className="mb-4">
           <label className="block sm:text-[20px] text-[15px] font-bold font-sansation mb-1 text-charcoal">
-            Birthday <span className="text-[#2F2F2F80]">(YYYY-MM-DD)</span>
+            Birthday <span className="text-[#2F2F2F80]">(MM-DD-YYYY)</span>
           </label>
           <div className="flex items-center border border-[#2F2F2F] rounded px-3 py-2">
             <input
