@@ -12,6 +12,7 @@ import {
 import img from "../../../assets/images/dashboard/img4.png";
 import FamilyCards from "./FamilyCards";
 import ClientDashboardLayout from "../../../components/DashbaordLayout/Client Dashbaord";
+import { MemberDetailsModal } from "../../../components/Modals/MemberDetailsModal";
 
 const data = {
   connectedMembers: [
@@ -135,6 +136,10 @@ const FamilyandFriends = () => {
         isOpen={isModalOpen6}
         onClose={() => setModalOpen6(false)}
       />
+      <MemberDetailsModal
+        isOpen={isDetailsModalOpen}
+        onClose={() => setDetailsModalOpen(false)}
+      />
       {isfamilycard ? (
         <>
           <div className="mt-2">
@@ -146,7 +151,9 @@ const FamilyandFriends = () => {
                 <FamilyCards
                   key={member.id}
                   data={member}
-                  showmodal={() => setModalOpen(true)}
+                  showmodal={() => {
+                    setDetailsModalOpen(true);
+                  }}
                   showmodal1={() => setModalOpen1(true)}
                   showmodal2={() => setModalOpen2(true)}
                   showmodal4={() => setModalOpen4(true)}
