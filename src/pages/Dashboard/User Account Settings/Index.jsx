@@ -34,7 +34,7 @@ export default function UserAccountSettingPage() {
 
   return (
     <ClientDashboardLayout
-      title="Account & Settings"
+      title="Account Settings"
       headerAction={
         <button
           className="bg-[#FFE6D8] text-[#FF827F] font-bold text-lg px-5 py-2 rounded-[10px] shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
