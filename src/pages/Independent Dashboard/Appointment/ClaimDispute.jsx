@@ -205,23 +205,53 @@ export default function IndependentClaimDispute() {
                                     </div>
                                 </div>
 
-                                {/* Right side */}
-                                <div className="border-l border-[#2F2F2F33] h-auto px-10 sm:py-15 py-4 rounded-tl-[10px] rounded-bl-[10px] flex sm:flex-col flex-row gap-3 sm:gap-0 items-center justify-center">
-                                    <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">{reason ? "Resolved" : "Ongoing"}</p>
-                                    <p className="font-[400] sm:text-[30px] text-[15px] text-[#121111">{reason ? "May 26, 25" : a.date}</p>
-                                    <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">{a.time}</p>
-                                    {reason &&
-                                        <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">Dispute Closed</p>
-                                    }
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                {/* Right side */}
+                <div className="border-l border-[#2F2F2F33] h-auto px-10 sm:py-15 py-4 rounded-tl-[10px] rounded-bl-[10px] flex sm:flex-col flex-row gap-3 sm:gap-0 items-center justify-center">
+                  <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">
+                    {reason ? "Resolved" : "Ongoing"}
+                  </p>
+                  <p className="font-[400] sm:text-[30px] text-[15px] text-[#121111">
+                    {reason ? "May 26, 25" : a.date}
+                  </p>
+                  <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">
+                    {a.time}
+                  </p>
+                  {reason && (
+                    <p className="font-[500] sm:text-[16px] text-[15px] text-[#121111">
+                      Dispute Closed
+                    </p>
+                  )}
                 </div>
-                <div className="lg:w-fit w-full sm:max-w-1/3">
-                    <RightDivAppointment />
-                </div>
+              </div>
+            ))}
+            {/* Blocked Clients */}
+            <div className="flex flex-col gap-2 bg-[#FAF9F6] border border-[#2F2F2F33] rounded-[10px] px-5 py-5 w-full">
+              <button className="border! border-gray-500 rounded-md px-2 py-0.5 font-semibold w-fit mb-2 text-lg">
+                Blocked Clients
+              </button>
+              <ul className="pl-4">
+                {[{ name: "Dominque Artina" }, { name: "Cecilia Maroon" }].map(
+                  (client, index) => (
+                    <li
+                      key={index}
+                      className="mb-2 relative pl-6 flex items-center justify-between"
+                    >
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 size-1.5 bg-black rounded-full"></div>
+                      <span className="font-semibold">{client.name}</span>
+                      <button className="border! text-red-500 border-red-500 rounded-md px-3 py-1 font-semibold ml-4">
+                        Unblock
+                      </button>
+                    </li>
+                  )
+                )}
+              </ul>
             </div>
-        </IndependentDashboardLayout>
-    );
+          </div>
+        </div>
+        <div className="lg:w-fit w-full sm:max-w-1/3">
+          <RightDivAppointment />
+        </div>
+      </div>
+    </IndependentDashboardLayout>
+  );
 }
