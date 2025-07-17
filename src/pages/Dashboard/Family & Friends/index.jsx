@@ -79,6 +79,7 @@ const FamilyandFriends = () => {
   const [isModalOpen5, setModalOpen5] = useState(false);
   const [isModalOpen6, setModalOpen6] = useState(false);
   const [isfamilycard, setFamilyCard] = useState(false);
+  const [isDetailsModalOpen, setDetailsModalOpen] = useState(false);
 
   const handleshowfamilycard = () => {
     setModalOpen(false);
