@@ -1322,8 +1322,9 @@ const AddSelectTargetModal = ({
             </div>
           )}
           <div>
-            <label className="block font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-              Enter your price
+            <label className="block font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal flex items-center gap-2">
+              Add Tip
+              <RiInformationFill className="text-[#FF827F] text-lg" />
             </label>
             <div className="flex items-center rounded px-3 py-2 border border-[#2F2F2F] relative">
               <input
@@ -2321,8 +2322,9 @@ const ReviewandConfirm = ({
           </div>
           <div className="border border-[#2F2F2F33] rounded-[10px] p-2 mb-2 flex items-center justify-between">
             <div>
-              <h6 className="text-[#121111] sm:text-[14px] text-[12px] font-[700] font-inter">
+              <h6 className="text-[#121111] sm:text-[14px] text-[12px] font-[700] font-inter flex items-center">
                 Add Tip
+                <RiInformationFill className="text-[#FF827F] text-lg" />
               </h6>
               <p className="text-[#757575] sm:text-[14px] text-[12px] font-[400] font-inter">
                 Percentage of the service cost
@@ -12037,8 +12039,9 @@ const AddSelectTargetNotificationModal = ({
               </div>
             )}
             <div>
-              <label className="block font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
+              <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal flex gap-1 items-center">
                 Add Tip
+                <RiInformationFill className="text-[#FF827F] text-lg" />
               </label>
               <div className="flex items-center rounded px-3 py-2 border border-[#2F2F2F] relative">
                 <input
