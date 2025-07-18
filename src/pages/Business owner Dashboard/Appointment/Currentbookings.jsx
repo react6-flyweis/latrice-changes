@@ -5,12 +5,12 @@ import { useState } from "react";
 
 import {
   BussinessChangeBookingDateTimeMOdal,
-  BussinessNeedHelpBookingDetailsModal,
   BussinessResheduleSuccessModal,
 } from "../../../components/Modals/Modal";
 import BusinessOwnerDashboardLayout from "../../../components/DashbaordLayout/Business Owner";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { ProfessionalBookingDetailsModal } from "../../../components/Modals/ProfessionalBookingDetailsModal";
+import { ProfessionalNeedHelpBookingDetailsModal } from "../../../components/Modals/ProfessionalNeedHelpModal";
 
 const times = [
   "08:30 AM",
@@ -111,8 +111,6 @@ export default function BusinessCurrentbookings() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("Customer Bookings");
 
-  const [issue, setIssue] = useState("");
-
   const locations = ["Customer Bookings", "Personal Bookings"];
 
   const handlopensecond = () => {
@@ -133,14 +131,6 @@ export default function BusinessCurrentbookings() {
     setModalOpen(true);
     setModalOpen3(false);
   };
-
-  const options = [
-    "I’m here, but provider is not",
-    "I feel unsafe or uncomfortable",
-    "I can’t find the location",
-    "Provider is not responding",
-    "Something else happened",
-  ];
 
   return (
     <BusinessOwnerDashboardLayout
@@ -201,13 +191,10 @@ export default function BusinessCurrentbookings() {
         isOpen={isModalOpen2}
         onClose={() => setModalOpen2(false)}
       />
-      <BussinessNeedHelpBookingDetailsModal
+      <ProfessionalNeedHelpBookingDetailsModal
         isOpen={isModalOpen3}
         onClose={() => setModalOpen3(false)}
-        options={options}
-        selectedOption={issue}
-        setSelectedOption={setIssue}
-        handlebacknhelp={handlebacknhelp}
+        handleBack={handlebacknhelp}
       />
       <div className="flex flex-col lg:flex-row w-full gap-4 mt-4">
         <div className="flex-1 overflow-auto">
