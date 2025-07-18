@@ -39,12 +39,10 @@ import { FiShare } from "react-icons/fi";
 import { FaStar } from "react-icons/fa6";
 import { GiSandsOfTime } from "react-icons/gi";
 import { IoInformationCircleOutline } from "react-icons/io5";
-import { RxStarFilled } from "react-icons/rx";
 import { FaRegImage } from "react-icons/fa6";
 import { LuPlus } from "react-icons/lu";
 import { FaArrowDown } from "react-icons/fa6";
 import { FaCircle } from "react-icons/fa";
-import { PiWarningCircleFill } from "react-icons/pi";
 import { FaDollarSign } from "react-icons/fa6";
 
 import img from "../../assets/images/dashboard/img5.png";
@@ -1308,13 +1306,13 @@ const AddSelectTargetModal = ({
           {value2 && (
             <div>
               <label className="block font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                Add Tip
+                Enter Special event tip
               </label>
               <div className="flex items-center rounded px-3 py-2 border border-[#2F2F2F] relative">
                 <input
                   type="text"
                   className="flex-grow outline-none text-[#2F2F2F80]"
-                  placeholder="$0.00"
+                  placeholder="Min amount $50"
                 />
                 <span className="px-3 py-2 bg-[#2F2F2F] text-[#FAF9F6] absolute right-0">
                   $
@@ -1331,7 +1329,7 @@ const AddSelectTargetModal = ({
               <input
                 type="text"
                 className="flex-grow outline-none text-[#2F2F2F80]"
-                placeholder="Min amount $50"
+                placeholder="$0.00"
               />
               <span className="px-3 py-2 bg-[#2F2F2F] text-[#FAF9F6] absolute right-0">
                 $
@@ -2394,258 +2392,6 @@ const ReviewandConfirm = ({
     </div>
   );
 };
-const Makepayment = ({ isOpen, onClose, handleopenfivth, handlebackfouth }) => {
-  if (!isOpen) return null;
-
-  const [selected, setSelected] = useState("Credit/Debit Cards");
-  const paymentOptions = ["Credit/Debit Cards", "UPI", "PayPal", "Wallets"];
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-2xl max-w-md p-3 shadow-xl">
-        {/* hearder  */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <IoArrowBack
-              color="#2F2F2F"
-              size={25}
-              className="cursor-pointer"
-              onClick={handlebackfouth}
-            />
-            <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
-              Make payment
-            </h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-rasa text-[#121111] font-[600] sm:text-[18px] text-[15px]">
-              03:00
-            </span>
-            <MdOutlineAccessAlarms className="text-[#2F2F2F]" size={24} />
-            <IoMdCloseCircleOutline
-              className="cursor-pointer text-xl text-[#000000]"
-              onClick={onClose}
-            />
-          </div>
-        </div>
-        {/* main */}
-        <div className="mt-5">
-          <div className="text-center mb-5">
-            <h6 className="font-rasa font-[600] sm:text-[30px] text-[20px] text-charcoal">
-              February, Wednesday 26 2025
-            </h6>
-            <p className="font-rasa font-[400] sm:text-[30px] text-[20px] text-charcoal m-0">
-              10:30 AM - 12:00 PM (1hour 30min)
-            </p>
-            <span className="font-rasa font-[600] sm:text-[12px] text-[10px] text-[#757575] m-0">
-              Omar Vaccaro Barber Shop
-            </span>
-            <div className="flex items-center justify-center">
-              <span className="font-[500] text-[#121111]  sm:text-[18px] text-[15px]">
-                Total:
-              </span>
-              <span className="font-[700] text-[#121111]  sm:text-[30px] text-[25px] m-0">
-                $85.00
-              </span>
-            </div>
-          </div>
-
-          <div>
-            <h6 className="font-rasa text-charcoal font-[600] sm:text-[30px] text-[25] text-center mb-2">
-              Your Payment Options
-            </h6>
-            <div className="w-full max-w-2xl mx-auto">
-              {/* Tabs */}
-              <div className="flex items-center justify-between mb-3">
-                {paymentOptions.map((option) => (
-                  <div
-                    key={option}
-                    onClick={() => setSelected(option)}
-                    className="flex items-center gap-2 cursor-pointer"
-                  >
-                    <div
-                      className={`w-[28px] h-[28px] rounded-full
-                                        ${
-                                          selected === option
-                                            ? "bg-[#34A853]"
-                                            : "bg-[#D9D9D9]"
-                                        }`}
-                    ></div>
-                    <p className="sm:text-[17px] text-[15px] text-[#121111] font-[500]">
-                      {option}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Conditional Fields */}
-              {selected === "Credit/Debit Cards" && (
-                <div className="space-y-2">
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Card Number
-                    </label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                      <input
-                        type="text"
-                        placeholder="1234 1234 1234 1234"
-                        className="outline-none border-none flex-1"
-                      />
-                      <div className="flex items-center space-x-2">
-                        <img src={img5} alt="Visa" className="h-8" />
-                        <img src={img6} alt="Discover" className="h-8" />
-                        <img src={img7} alt="Amex" className="h-8" />
-                        <img src={img8} alt="Mastercard" className="h-8" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 items-center gap-1">
-                    <div>
-                      <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                        Expiration Date
-                      </label>
-                      <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="outline-none border-none flex-1"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                        Security Code
-                      </label>
-                      <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                        <input
-                          type="text"
-                          placeholder="CVC"
-                          className="outline-none border-none flex-1"
-                        />
-                        <div className="">
-                          <img src={img9} alt="Visa" className="h-6" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Country
-                    </label>
-                    <select
-                      name=""
-                      id=""
-                      className="w-full border border-[#2F2F2F] px-3 py-2 rounded outline-none"
-                    >
-                      <option value="">United States Of America</option>
-                    </select>
-                  </div>
-                </div>
-              )}
-
-              {selected === "UPI" && (
-                <div className="space-y-3">
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Google Pay
-                    </label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img10} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-semibold">Amazon Pay</label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img11} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-semibold">Apple Pay</label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img12} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {selected === "PayPal" && (
-                <div>
-                  <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                    PayPal
-                  </label>
-                  <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                    <div className="flex items-center space-x-2">
-                      <img src={img13} alt="Visa" className="h-8" />
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Bank name*****123"
-                      className="outline-none border-none flex-1"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {selected === "Wallets" && (
-                <div className="mt-2">
-                  <h6 className="font-sansation font-[700] sm:text-[20px] text-[18px] text-charcoal mb-2">
-                    Your wallet balance is $500.00
-                  </h6>
-                  <p className="font-sansation font-[400] sm:text-[12px] text-[10px] text-[#757575]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-start">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
-
-        <div className="mt-3 flex justify-center">
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-2 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
-            onClick={handleopenfivth}
-          >
-            Pay
-          </button>
-        </div>
-        <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-center mt-5">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
-      </div>
-    </div>
-  );
-};
 
 const AddPaymenSuccessModal = ({ isOpen, handlshowgiftcard }) => {
   if (!isOpen) return null;
@@ -3321,7 +3067,7 @@ const ExtraMakepayment = ({
   if (!isOpen) return null;
 
   const [selected, setSelected] = useState("Credit/Debit Cards");
-  const paymentOptions = ["Credit/Debit Cards", "UPI", "PayPal", "Wallets"];
+  const paymentOptions = ["Credit/Debit Cards", "NFC", "PayPal", "Wallets"];
 
   return (
     <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
@@ -3465,7 +3211,7 @@ const ExtraMakepayment = ({
                 </div>
               )}
 
-              {selected === "UPI" && (
+              {selected === "NFC" && (
                 <div className="space-y-3">
                   <div>
                     <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
@@ -4096,7 +3842,7 @@ const ClaimBookingModal = ({ isOpen, onClose, handlopensecond }) => {
             className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-2 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
             onClick={handlopensecond}
           >
-            Claim Dispute
+            Submit Dispute
           </button>
         </div>
       </div>
@@ -4920,7 +4666,7 @@ const AddCardModal = ({
   if (!isOpen) return null;
 
   const [selected, setSelected] = useState("Credit/Debit Cards");
-  const paymentOptions = ["Credit/Debit Cards", "UPI", "PayPal", "Wallets"];
+  const paymentOptions = ["Credit/Debit Cards", "NFC", "PayPal", "Wallets"];
 
   return (
     <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
@@ -6313,109 +6059,6 @@ const AddManager = ({ isOpen, onClose, handleshowfamilycard }) => {
   );
 };
 
-const BussinessNeedHelpBookingDetailsModal = ({
-  isOpen,
-  onClose,
-  options,
-  selectedOption,
-  setSelectedOption,
-  handlebacknhelp,
-}) => {
-  if (!isOpen) return null;
-
-  const navigate = useNavigate();
-
-  const closemodal = () => {
-    onClose();
-    navigate("/business-owner/dashboard/appointments/claim/dispute-bookings");
-  };
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-2xl max-w-md p-3 shadow-xl h-[80vh] overflow-auto">
-        {/* hearder  */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <IoIosArrowBack
-              className="cursor-pointer text-xl text-[#000000]"
-              onClick={handlebacknhelp}
-            />
-            <h2 className="sm:text-[30px] text-[20px] font-[600] text-charcoal font-rasa">
-              Need Help?
-            </h2>
-          </div>
-          <IoMdCloseCircleOutline
-            className="cursor-pointer text-2xl text-[#000000]"
-            onClick={onClose}
-          />
-        </div>
-        {/* main */}
-        <div className="mt-2">
-          <h6 className="sm:text-[35px] text-[25px] font-[600] text-charcoal font-rasa">
-            What seems to be the issue?
-          </h6>
-          <div className="space-y-3">
-            {options.map((opt) => (
-              <label
-                key={opt}
-                className="flex items-center gap-5 cursor-pointer"
-              >
-                <span className="relative w-4 h-4">
-                  <input
-                    type="radio"
-                    name="yesno2"
-                    className="appearance-none w-5 h-5 rounded-full checked:bg-[#F67067] checked:border-4 checked:border-white focus:outline-none"
-                    checked={selectedOption === opt}
-                    onChange={() => setSelectedOption(opt)}
-                  />
-                  <span
-                    className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none border ${
-                      selectedOption === opt
-                        ? "border-[#F67067]"
-                        : "border-[#2F2F2F]"
-                    }`}
-                  ></span>
-                </span>
-                <span className="font-[400] font-sansation sm:text-[25px] text-[20px] text-charcoal">
-                  {opt}
-                </span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-5 flex flex-col justify-center gap-2">
-          {selectedOption && (
-            <p className="font-[400] font-rasa sm:text-[20px] text-[15px] text-charcoal m-0">
-              Thanks for letting us know. We’ve logged this issue and your
-              location (if applicable). If the provider does not arrive or
-              respond, you can take further action.
-            </p>
-          )}
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-[700] text-lg px-2 py-4  rounded-[10px] shadow-[0px_4px_4px_0px_#00000040]"
-            onClick={onClose}
-          >
-            Contact Support
-          </button>
-          {selectedOption && (
-            <>
-              <p className="font-[400] font-rasa sm:text-[20px] text-[15px] text-charcoal m-0">
-                Still need to formally report this session?
-              </p>
-              <h6
-                onClick={closemodal}
-                className="font-[700] font-rasa sm:text-[20px] text-[15px] text-charcoal m-0 underline cursor-pointer"
-              >
-                Submit a Dispute
-              </h6>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
 const CancelThisbookingModal = ({ isOpen, onClose, handlopenbackCancel }) => {
   if (!isOpen) return null;
 
@@ -6731,146 +6374,6 @@ const BussinessPastBookingDetailsModal = ({
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s
         </p>
-      </div>
-    </div>
-  );
-};
-
-const BussinessPastBookingReviewModal = ({
-  isOpen,
-  onClose,
-  handlopenThird,
-  handlbackfirst,
-}) => {
-  if (!isOpen) return null;
-  const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
-  const [review, setReview] = useState("");
-  const [images, setImages] = useState([null, null]);
-
-  const handleImageChange = (e, index) => {
-    const newImages = [...images];
-    newImages[index] = e.target.files[0];
-    setImages(newImages);
-  };
-
-  const Reviewdata = [
-    "Clean customer",
-    "Punctual customer",
-    "Respected instructions",
-    "Respectful customer",
-    "Clarity in specified needs",
-  ];
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full max-w-sm sm:max-w-2xl p-3 shadow-xl overflow-y-auto h-[80vh] relative">
-        <div className="flex items-center justify-between mb-5">
-          <IoIosArrowBack
-            className="cursor-pointer text-2xl text-[#000000]"
-            onClick={handlbackfirst}
-          />
-          <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
-            Give A Review
-          </h2>
-          <IoMdCloseCircleOutline
-            className="cursor-pointer text-2xl text-[#000000]"
-            onClick={onClose}
-          />
-        </div>
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <img src={img21} alt="" className="w-20 h-20 rounded-full" />
-          <span className="font-rasa font-[600] sm:text-[30px] text-[25px] text-[#757575] m-0">
-            Maren Levin
-          </span>
-        </div>
-
-        <div className="space-y-2 h-[40vh] overflow-auto mb-5 pr-2">
-          {Reviewdata.map((items, index) => (
-            <div
-              key={index}
-              className="border border-[#2F2F2F33] rounded-[10px] px-5 py-2 w-full"
-            >
-              <div className="flex justify-between items-start">
-                <label className="font-[700] sm:text-[17px] text-[15px] text-[#121111] mb-2">
-                  {items}
-                </label>
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => {
-                    const starValue = i + 1;
-                    return (
-                      <IoIosStar
-                        key={i}
-                        size={22}
-                        className="cursor-pointer transition"
-                        color={
-                          starValue <= (hover || rating) ? "#FFC107" : "#E0E0E0"
-                        }
-                        onClick={() => setRating(starValue)}
-                        onMouseEnter={() => setHover(starValue)}
-                        onMouseLeave={() => setHover(0)}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-
-              <textarea
-                value={review}
-                onChange={(e) => setReview(e.target.value)}
-                placeholder="Type your review..."
-                className="w-full bg-[#FAF9F6] border border-[#00000033] rounded-[10px] p-3 text-sm resize-none focus:outline-none"
-                rows={2}
-              />
-
-              <div className="flex gap-2 mt-1 flex-wrap">
-                {images.map((img, index) => (
-                  <label
-                    key={index}
-                    className="w-[60px] h-[60px] border border-dashed border-[#00000033] flex flex-col justify-center items-center text-center text-xs rounded-[8px] cursor-pointer hover:bg-gray-500"
-                  >
-                    {img ? (
-                      <img
-                        src={URL.createObjectURL(img)}
-                        alt={`Preview ${index + 1}`}
-                        className="w-full h-full object-cover rounded-md"
-                      />
-                    ) : (
-                      <>
-                        <span className="text-xl text-[#123E41] font-[700]">
-                          +
-                        </span>
-                        <spa className="font-[700] text-[10px] font-sansation text-charcoal hover:text-white">
-                          Add Image
-                        </spa>
-                      </>
-                    )}
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleImageChange(e, index)}
-                    />
-                  </label>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="absolute bottom-2 ">
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-2 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
-            onClick={handlopenThird}
-          >
-            Submit
-          </button>
-          <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-center mt-3">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
-        </div>
       </div>
     </div>
   );
@@ -7661,7 +7164,18 @@ const IndependentAcceptSuccessModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white w-full max-w-sm sm:max-w-xl p-3 shadow-xl overflow-y-auto h-[80vh] rounded-[10px]">
+      <div className="relative bg-white w-full max-w-sm sm:max-w-xl p-3 shadow-xl overflow-y-auto h-[80vh] rounded-[10px]">
+        {/* close button */}
+
+        <buttom className="absolute top-2 right-2">
+          <IoClose
+            onClick={onClose}
+            color="#2F2F2F"
+            size={20}
+            className="cursor-pointer"
+          />
+        </buttom>
+
         <div className="flex items-center flex-col justify-center">
           <img src={img3} alt="" className="w-[200px] h-[200px]" />
           <h6 className="font-rasa font-[600] sm:text-[30px] text-[25px] text-charcoal text-center">
@@ -8204,595 +7718,6 @@ const SalonDetailsDateandTime = ({
             Continue
           </button>
         </div>
-      </div>
-    </div>
-  );
-};
-const SalonDetailsReviewandConfirm = ({
-  isOpen,
-  onClose,
-  handleopenthirdmodal,
-  handlebacksecondmodal,
-}) => {
-  if (!isOpen) return null;
-
-  const [selected, setSelected] = useState("");
-  const [value, setValue] = useState(null);
-  const [value1, setValue1] = useState(null);
-  const [value2, setValue2] = useState(null);
-
-  const persantages = ["10%", "15%", "20%"];
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-2xl max-w-md p-3 shadow-xl">
-        {/* hearder  */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <IoArrowBack
-              color="#2F2F2F"
-              size={25}
-              className="cursor-pointer"
-              onClick={handlebacksecondmodal}
-            />
-            <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
-              Review and confirm
-            </h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-rasa text-[#121111] font-[600] sm:text-[18px] text-[15px]">
-              03:00
-            </span>
-            <MdOutlineAccessAlarms className="text-[#2F2F2F]" size={24} />
-            <IoMdCloseCircleOutline
-              className="cursor-pointer text-xl text-[#000000]"
-              onClick={onClose}
-            />
-          </div>
-        </div>
-        {/* main */}
-        <div className="mt-5 max-h-[50vh] overflow-y-auto pb-2">
-          <div className="text-center mb-5">
-            <h6 className="font-rasa font-[600] sm:text-[30px] text-[20px] text-charcoal">
-              February, Wednesday 26 2025
-            </h6>
-            <p className="font-rasa font-[400] sm:text-[30px] text-[20px] text-charcoal m-0">
-              10:30 AM - 12:00 PM (1hour 30min)
-            </p>
-            <span className="font-rasa font-[600] sm:text-[12px] text-[10px] text-[#757575] m-0">
-              Omar Vaccaro Barber Shop
-            </span>
-          </div>
-          <div className="border border-[#2F2F2F33] rounded-[10px] p-2 mb-2">
-            <div className="flex items-center justify-between">
-              <div className="">
-                <h3 className="font-[700]  text-[14px] font-gotu text-[#121111] mb-1">
-                  Gent's Standard
-                </h3>
-                <p className="text-[14px] text-[#494948] font-inter font-[400] mb-2">
-                  Professional consultation, haircut, hot lather neck shave,
-                  shampoo and conditioner
-                </p>
-
-                <div className="flex items-center gap-1 text-[12px] text-[#494948] font-inter font-[400] mt-2">
-                  Staff
-                  <img src={img4} alt="" className="w-10 h-10 rounded-full" />
-                  <h6 className="text-[#121111] sm:text-[14px] text-[10px] font-[700] font-inter">
-                    Lydia Baptista
-                  </h6>
-                </div>
-              </div>
-              <div className="flex flex-col items-end space-y-1">
-                <h6 className="text-[#121111] sm:text-[18px] text-[15px] font-[700] font-inter">
-                  $40.00
-                </h6>
-                <p className="text-[#757575] sm:text-[14px] text-[15px] font-[400] font-inter">
-                  {" "}
-                  10:30 AM - 11:00 AM
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="border border-[#2F2F2F33] rounded-[10px] p-2 mb-2 flex items-center justify-between">
-            <div>
-              <h6 className="text-[#121111] sm:text-[14px] text-[12px] font-[700] font-inter">
-                Add Tip
-              </h6>
-              <p className="text-[#757575] sm:text-[14px] text-[12px] font-[400] font-inter">
-                Percentage of the service cost
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              {persantages.map((persantage) => (
-                <div
-                  key={persantage}
-                  onClick={() => setSelected(persantage)}
-                  className={`px-2 py-1 cursor-pointer rounded-md text-[#000000] sm:text-[15px] text-[12px] font-[700] font-inter transition-all duration-200
-        ${
-          selected === persantage
-            ? "bg-[#FF827F]"
-            : "border border-[#2F2F2F80] bg-white"
-        }`}
-                >
-                  {persantage}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mb-2">
-            <div className="w-full border border-[#2F2F2F] rounded-[6px] px-4 py-2 pr-10 flex items-center gap-2">
-              <span className=" text-[#000000] cursor-pointer">
-                <FaRegCommentDots />
-              </span>
-              <input
-                type="text"
-                placeholder="Leave a note (optional)"
-                className="outline-none border-none"
-              />
-            </div>
-          </div>
-          <div className="mb-2">
-            <div className="w-full border border-[#2F2F2F] rounded-[6px] px-4 py-2 pr-10 flex items-center gap-2">
-              <span className=" text-[#000000] cursor-pointer">
-                <FaRegCommentDots />
-              </span>
-              <input
-                type="text"
-                placeholder="Apply gift card here (if any)"
-                className="outline-none border-none"
-              />
-            </div>
-          </div>
-          <div className="mb-2">
-            <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-secondary flex items-center gap-1 mb-2">
-              Special event? <RiInformationFill />
-            </label>
-            <div className="flex items-center gap-4">
-              <label className="flex items-center gap-1 cursor-pointer">
-                <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                  Yes
-                </span>
-                <span className="relative w-4 h-4">
-                  <input
-                    type="radio"
-                    name="yesno2"
-                    className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                    checked={value === true}
-                    onChange={() => setValue(true)}
-                  />
-                  <span
-                    className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                      value === true ? "border-[#F67067]" : "border-[#2F2F2F]"
-                    } border`}
-                  ></span>
-                </span>
-              </label>
-
-              <label className="flex items-center gap-1 cursor-pointer">
-                <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                  No
-                </span>
-                <span className="relative w-4 h-4">
-                  <input
-                    type="radio"
-                    name="yesno2"
-                    className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                    checked={value2 === false}
-                    onChange={() => setValue2(false)}
-                  />
-                  <span
-                    className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                      value2 === false ? "border-[#F67067]" : "border-[#2F2F2F]"
-                    } border`}
-                  ></span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <div className="mb-2">
-            <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-secondary flex items-center gap-1 mb-2">
-              Special event? <RiInformationFill />
-            </label>
-            <div className="flex items-center gap-4">
-              <label className="flex items-center gap-1 cursor-pointer">
-                <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                  Yes
-                </span>
-                <span className="relative w-4 h-4">
-                  <input
-                    type="radio"
-                    name="yesno2"
-                    className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                    checked={value1 === true}
-                    onChange={() => setValue1(true)}
-                  />
-                  <span
-                    className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                      value1 === true ? "border-[#F67067]" : "border-[#2F2F2F]"
-                    } border`}
-                  ></span>
-                </span>
-              </label>
-
-              <label className="flex items-center gap-1 cursor-pointer">
-                <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                  No
-                </span>
-                <span className="relative w-4 h-4">
-                  <input
-                    type="radio"
-                    name="yesno2"
-                    className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                    checked={value2 === false}
-                    onChange={() => setValue2(false)}
-                  />
-                  <span
-                    className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                      value2 === false ? "border-[#F67067]" : "border-[#2F2F2F]"
-                    } border`}
-                  ></span>
-                </span>
-              </label>
-            </div>
-          </div>
-          {value && (
-            <>
-              <div className="mb-2">
-                <label className="block font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                  Enter the address where you’d like the service provider to
-                  come, if it differs from the one listed in your account.
-                </label>
-                <div className="flex items-center rounded px-3 py-2 border border-[#2F2F2F] relative">
-                  <input
-                    type="text"
-                    className="flex-grow outline-none text-[#2F2F2F80]"
-                    placeholder="Enter here.."
-                  />
-                  <span className="px-3 py-2 bg-[#2F2F2F] text-[#FAF9F6] absolute right-0">
-                    $
-                  </span>
-                </div>
-              </div>
-              <div>
-                <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-secondary flex items-center gap-1 mb-2">
-                  Free parking spot?
-                </label>
-                <div className="flex items-center gap-4">
-                  <label className="flex items-center gap-1 cursor-pointer">
-                    <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                      Yes
-                    </span>
-                    <span className="relative w-4 h-4">
-                      <input
-                        type="radio"
-                        name="yesno1"
-                        className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                        checked={value1 === true}
-                        onChange={() => setValue1(true)}
-                      />
-                      <span
-                        className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                          value1 === true
-                            ? "border-[#F67067]"
-                            : "border-[#2F2F2F]"
-                        } border`}
-                      ></span>
-                    </span>
-                  </label>
-
-                  <label className="flex items-center gap-1 cursor-pointer">
-                    <span className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal">
-                      No
-                    </span>
-                    <span className="relative w-4 h-4">
-                      <input
-                        type="radio"
-                        name="yesno1"
-                        className="appearance-none w-5 h-5  rounded-full checked:bg-[#F67067]  checked:border-4 checked:border-white focus:outline-none"
-                        checked={value1 === false}
-                        onChange={() => setValue1(false)}
-                      />
-                      <span
-                        className={`absolute w-5 h-5 inset-0 rounded-full pointer-events-none ${
-                          value1 === false
-                            ? "border-[#F67067]"
-                            : "border-[#2F2F2F]"
-                        } border`}
-                      ></span>
-                    </span>
-                  </label>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-
-        <div className="flex flex-col items-end justify-end mt-8">
-          <div className="flex items-center">
-            <span className="font-[500] text-[#121111] mr-1 sm:text-[18px] text-[15px]">
-              Total:
-            </span>
-            <span className="font-[700] text-[#121111] mr-1 sm:text-[30px] text-[25px] m-0">
-              $85.00
-            </span>
-          </div>
-          <div className="pl-[50px] mt-1">
-            <span className="font-[500] text-[#757575] mr-1 sm:text-[16px] text-[15px]">
-              1hour 30min
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-6 flex justify-center">
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-2 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
-            onClick={handleopenthirdmodal}
-          >
-            Make Payment
-          </button>
-        </div>
-        <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-center mt-5">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
-      </div>
-    </div>
-  );
-};
-const SalonDetailsMakepayment = ({
-  isOpen,
-  onClose,
-  handleopentforthmodal,
-  handlebackthirdmodal,
-}) => {
-  if (!isOpen) return null;
-
-  const [selected, setSelected] = useState("Credit/Debit Cards");
-  const paymentOptions = ["Credit/Debit Cards", "UPI", "PayPal", "Wallets"];
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-2xl max-w-md p-3 shadow-xl">
-        {/* hearder  */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <IoArrowBack
-              color="#2F2F2F"
-              size={25}
-              className="cursor-pointer"
-              onClick={handlebackthirdmodal}
-            />
-            <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
-              Make payment
-            </h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-rasa text-[#121111] font-[600] sm:text-[18px] text-[15px]">
-              03:00
-            </span>
-            <MdOutlineAccessAlarms className="text-[#2F2F2F]" size={24} />
-            <IoMdCloseCircleOutline
-              className="cursor-pointer text-xl text-[#000000]"
-              onClick={onClose}
-            />
-          </div>
-        </div>
-        {/* main */}
-        <div className="mt-5">
-          <div className="text-center mb-5">
-            <h6 className="font-rasa font-[600] sm:text-[30px] text-[20px] text-charcoal">
-              February, Wednesday 26 2025
-            </h6>
-            <p className="font-rasa font-[400] sm:text-[30px] text-[20px] text-charcoal m-0">
-              10:30 AM - 12:00 PM (1hour 30min)
-            </p>
-            <span className="font-rasa font-[600] sm:text-[12px] text-[10px] text-[#757575] m-0">
-              Omar Vaccaro Barber Shop
-            </span>
-            <div className="flex items-center justify-center">
-              <span className="font-[500] text-[#121111]  sm:text-[18px] text-[15px]">
-                Total:
-              </span>
-              <span className="font-[700] text-[#121111]  sm:text-[30px] text-[25px] m-0">
-                $85.00
-              </span>
-            </div>
-          </div>
-
-          <div>
-            <h6 className="font-rasa text-charcoal font-[600] sm:text-[30px] text-[25] text-center mb-2">
-              Your Payment Options
-            </h6>
-            <div className="w-full max-w-2xl mx-auto">
-              {/* Tabs */}
-              <div className="flex items-center justify-between mb-3">
-                {paymentOptions.map((option) => (
-                  <div
-                    key={option}
-                    onClick={() => setSelected(option)}
-                    className="flex items-center gap-2 cursor-pointer"
-                  >
-                    <div
-                      className={`w-[28px] h-[28px] rounded-full
-                                        ${
-                                          selected === option
-                                            ? "bg-[#34A853]"
-                                            : "bg-[#D9D9D9]"
-                                        }`}
-                    ></div>
-                    <p className="sm:text-[17px] text-[15px] text-[#121111] font-[500]">
-                      {option}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Conditional Fields */}
-              {selected === "Credit/Debit Cards" && (
-                <div className="space-y-2">
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Card Number
-                    </label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                      <input
-                        type="text"
-                        placeholder="1234 1234 1234 1234"
-                        className="outline-none border-none flex-1"
-                      />
-                      <div className="flex items-center space-x-2">
-                        <img src={img5} alt="Visa" className="h-8" />
-                        <img src={img6} alt="Discover" className="h-8" />
-                        <img src={img7} alt="Amex" className="h-8" />
-                        <img src={img8} alt="Mastercard" className="h-8" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 items-center gap-1">
-                    <div>
-                      <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                        Expiration Date
-                      </label>
-                      <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="outline-none border-none flex-1"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                        Security Code
-                      </label>
-                      <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center">
-                        <input
-                          type="text"
-                          placeholder="CVC"
-                          className="outline-none border-none flex-1"
-                        />
-                        <div className="">
-                          <img src={img9} alt="Visa" className="h-6" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Country
-                    </label>
-                    <select
-                      name=""
-                      id=""
-                      className="w-full border border-[#2F2F2F] px-3 py-2 rounded outline-none"
-                    >
-                      <option value="">United States Of America</option>
-                    </select>
-                  </div>
-                </div>
-              )}
-
-              {selected === "UPI" && (
-                <div className="space-y-3">
-                  <div>
-                    <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                      Google Pay
-                    </label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img10} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-semibold">Amazon Pay</label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img11} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-semibold">Apple Pay</label>
-                    <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                      <div className="flex items-center space-x-2">
-                        <img src={img12} alt="Visa" className="h-8" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Bank name*****123"
-                        className="outline-none border-none flex-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {selected === "PayPal" && (
-                <div>
-                  <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
-                    PayPal
-                  </label>
-                  <div className="w-full border border-[#2F2F2F] px-3 py-2 rounded flex items-center gap-1">
-                    <div className="flex items-center space-x-2">
-                      <img src={img13} alt="Visa" className="h-8" />
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Bank name*****123"
-                      className="outline-none border-none flex-1"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {selected === "Wallets" && (
-                <div className="mt-2">
-                  <h6 className="font-sansation font-[700] sm:text-[20px] text-[18px] text-charcoal mb-2">
-                    Your wallet balance is $500.00
-                  </h6>
-                  <p className="font-sansation font-[400] sm:text-[12px] text-[10px] text-[#757575]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-start">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
-
-        <div className="mt-3 flex justify-center">
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-3 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
-            onClick={handleopentforthmodal}
-          >
-            Pay
-          </button>
-        </div>
-        <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-center mt-5">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
       </div>
     </div>
   );
@@ -10709,265 +9634,6 @@ const BussinessVerificationAppointmentwModal = ({
     </div>
   );
 };
-const BussinessRateAppointmentModal = ({
-  isOpen,
-  onClose,
-  handlopenforth,
-  handlbacksecond,
-}) => {
-  if (!isOpen) return null;
-  const [rating, setRating] = useState(0);
-  const [selectedTip, setSelectedTip] = useState(null);
-  const [hover, setHover] = useState(null);
-
-  const tipOptions = [
-    { percent: 10, amount: 5.0 },
-    { percent: 15, amount: 7.5 },
-    { percent: 20, amount: 10.0 },
-  ];
-
-  const [services, setServices] = useState({
-    Unsafe: false,
-    Noisy: false,
-    Slow: false,
-    Late: false,
-    Exceeded: false,
-    needs: false,
-    Constantly: false,
-    blowDryHair: false,
-    Rude: false,
-    Unclean: false,
-  });
-
-  const handleChange = (key) => {
-    setServices((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const renderCheckbox = (label, key) => (
-    <label className="flex items-center space-x-2" key={key}>
-      <input
-        type="checkbox"
-        className="peer hidden"
-        checked={services[key]}
-        onChange={() => handleChange(key)}
-      />
-      <div
-        className={`w-[28px] h-[28px] rounded-sm flex items-center justify-center transition-colors duration-300
-            ${
-              services[key]
-                ? "bg-[#123E41]"
-                : "bg-[#fff] border border-[#2F2F2F]"
-            }`}
-      >
-        {services[key] && (
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        )}
-      </div>
-      <span className="font-[700] font-sansation sm:text-[17px] text-[15px] text-charcoal">
-        {label}
-      </span>
-    </label>
-  );
-
-  return (
-    <div className="fixed inset-0  bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full max-w-sm sm:max-w-2xl p-3 shadow-xl overflow-y-auto h-[80vh] relative">
-        <div className="flex items-center justify-between mb-5">
-          <IoIosArrowBack
-            className="cursor-pointer text-2xl text-[#000000]"
-            onClick={handlbacksecond}
-          />
-          <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
-            How would you rate this appointment
-          </h2>
-          <IoMdCloseCircleOutline
-            className="cursor-pointer text-2xl text-[#000000]"
-            onClick={onClose}
-          />
-        </div>
-        <div className="space-y-2 h-[60vh] overflow-auto mb-5 pr-2 pb-5">
-          {/* Stars */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            {[...Array(5)].map((_, index) => {
-              const starNumber = index + 1;
-              return (
-                <RxStarFilled
-                  key={index}
-                  onClick={() => setRating(starNumber)}
-                  onMouseEnter={() => setHover(starNumber)}
-                  onMouseLeave={() => setHover(null)}
-                  className={`w-12 h-12 cursor-pointer ${
-                    starNumber <= (hover || rating)
-                      ? "text-[#2F2F2F]"
-                      : "text-[#D9D9D9]"
-                  }`}
-                />
-              );
-            })}
-          </div>
-          {/* options */}
-          {rating === 3 && (
-            <div className="mb-2">
-              <h2 className="sm:text-[28px] text-[20px] font-[600] text-center text-charcoal font-rasa mb-2">
-                What could have been better
-              </h2>
-              <div className="flex justify-between mb-5">
-                <div className="flex flex-col gap-2">
-                  {renderCheckbox(
-                    "Exceeded time indicated for service",
-                    "Exceeded"
-                  )}
-                  {renderCheckbox("Late start", "Late")}
-                  {renderCheckbox("Slow service", "Slow")}
-                  {renderCheckbox("Noisy and disturbed", "Noisy")}
-                  {renderCheckbox("Unsafe place", "Unsafe")}
-                </div>
-                <div className="flex flex-col gap-2">
-                  {renderCheckbox("Rude behavior", "Rude")}
-                  {renderCheckbox("Unclean space", "Unclean")}
-                  {renderCheckbox("Unprofessional", "blowDryHair")}
-                  {renderCheckbox(
-                    "Constantly stopped the service",
-                    "Constantly"
-                  )}
-                  {renderCheckbox("Didn’t listen to my needs", "needs")}
-                </div>
-              </div>
-              <div className="flex flex-col items-start">
-                <label
-                  htmlFor="confirm"
-                  className="sm:text-[25px] text-[18px] font-[500] text-center text-charcoal font-rasa"
-                >
-                  Want to share more? Tell us about your exprience.
-                </label>
-                <input
-                  type="text"
-                  placeholder="write..."
-                  maxLength="5"
-                  className="w-[98%] px-4 py-3 border border-[#2F2F2F] rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[#34A8535C]"
-                />
-              </div>
-            </div>
-          )}
-          {rating === 5 && (
-            <div className="mb-2">
-              <h2 className="sm:text-[28px] text-[20px] font-[600] text-center text-charcoal font-rasa mb-2">
-                What do you love about the service?
-              </h2>
-              <div className="flex justify-between mb-5">
-                <div className="flex flex-col gap-2">
-                  {renderCheckbox("Excellent service", "Exceeded")}
-                  {renderCheckbox("Very professional/focused", "Late")}
-                  {renderCheckbox("Punctual start", "Slow")}
-                  {renderCheckbox("Highly recommended", "Noisy")}
-                  {renderCheckbox("Welcoming throughout the sesion", "Unsafe")}
-                </div>
-                <div className="flex flex-col gap-2">
-                  {renderCheckbox("Talented stylist", "Rude")}
-                  {renderCheckbox("Punctual start", "Unclean")}
-                  {renderCheckbox("Highly recommended", "blowDryHair")}
-                  {renderCheckbox(
-                    "Pay attention to customer needs",
-                    "Constantly"
-                  )}
-                  {renderCheckbox("Service done as desired", "needs")}
-                </div>
-              </div>
-              <div className="flex flex-col items-start">
-                <label
-                  htmlFor="confirm"
-                  className="sm:text-[25px] text-[18px] font-[500] text-center text-charcoal font-rasa"
-                >
-                  Want to share more? Tell us about your exprience.
-                </label>
-                <input
-                  type="text"
-                  placeholder="write..."
-                  maxLength="5"
-                  className="w-[98%] px-4 py-3 border border-[#2F2F2F] rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[#34A8535C]"
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Question */}
-          <h2 className="sm:text-[28px] text-[20px] font-[600] text-center text-charcoal font-rasa mb-4">
-            Would you like to leave a tip?
-          </h2>
-
-          {/* Tip options */}
-          <div className="flex items-center justify-between  mb-4">
-            {tipOptions.map((tip) => (
-              <div
-                key={tip.percent}
-                onClick={() => setSelectedTip(tip.percent)}
-                className={`flex flex-col items-center cursor-pointer`}
-              >
-                <div
-                  className={`w-22 h-22 border-2  rounded-full flex items-center justify-center sm:text-[28px] text-[20px] font-[600] text-center  font-rasa
-                ${
-                  selectedTip === tip.percent
-                    ? "bg-[#123E41] text-white border-[#123E41]"
-                    : "border-[#2F2F2F] text-charcoal"
-                }`}
-                >
-                  {tip.percent}%
-                </div>
-                <span className="sm:text-[20px] text-[15px] font-[600] text-center text-charcoal font-rasa">
-                  = ${tip.amount.toFixed(2)}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Custom amount */}
-          <div className="flex flex-col items-start">
-            <label
-              htmlFor="confirm"
-              className="sm:text-[25px] text-[18px] font-[500] text-center text-charcoal font-rasa"
-            >
-              Or enter a custom amount:
-            </label>
-            <input
-              type="text"
-              placeholder="$0.00"
-              maxLength="5"
-              className="w-[98%] px-4 py-3 border border-[#2F2F2F] rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[#34A8535C]"
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-1 w-[97%] m-auto">
-          <button
-            className="w-full bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-2 py-3 rounded-md shadow-[0px_4px_4px_0px_#00000040] hover:bg-[#fbbcb5] transition"
-            onClick={handlopenforth}
-          >
-            Submit Review & Tip
-          </button>
-          <p className="font-[400] text-[#757575]  sm:text-[13px] text-[10px] text-center">
-            If something went wrong and you need to formally report this
-            appointment.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const PreAppointmentFormModal = ({
   isOpen,
@@ -11427,7 +10093,7 @@ const SendWaiverModal = ({ isOpen, onClose }) => {
             className="w-full bg-[#FFE6D8] text-[#FF827F] font-[700] text-lg px-2 py-4  rounded-[10px] shadow-[0px_4px_4px_0px_#00000040]"
             onClick={onClose}
           >
-            Continue
+            Send to client
           </button>
         </div>
       </div>
@@ -12095,7 +10761,7 @@ const NotificationMakepayment = ({
   if (!isOpen) return null;
 
   const [selected, setSelected] = useState("Credit/Debit Cards");
-  const paymentOptions = ["Credit/Debit Cards", "UPI", "PayPal", "Wallets"];
+  const paymentOptions = ["Credit/Debit Cards", "NFC", "PayPal", "Wallets"];
 
   return (
     <>
@@ -12235,7 +10901,7 @@ const NotificationMakepayment = ({
                   </div>
                 )}
 
-                {selected === "UPI" && (
+                {selected === "NFC" && (
                   <div className="space-y-3">
                     <div>
                       <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-charcoal mb-2">
@@ -12801,7 +11467,6 @@ export {
   AddBeneficiaryDetails,
   AddGiftCardDateandTime,
   ReviewandConfirm,
-  Makepayment,
   AddPaymenSuccessModal,
   AddaMember,
   BookingDetailsModal,
@@ -12837,7 +11502,6 @@ export {
   BussinessChangeBookingDateTimeMOdal,
   BussinessResheduleSuccessModal,
   BussinessPastBookingDetailsModal,
-  BussinessPastBookingReviewModal,
   AddSolonProfileImageModal,
   AddSolonePlaceModal,
   AddSoloneAmenitiesModal,
@@ -12850,8 +11514,6 @@ export {
   IndependentHiringDetailsModal,
   SalonDetailsSelectServiceModal,
   SalonDetailsDateandTime,
-  SalonDetailsReviewandConfirm,
-  SalonDetailsMakepayment,
   SalonDetailsPaymenSuccessModal,
   RequestFormModal,
   RequestFormSuccessModal,
@@ -12880,9 +11542,7 @@ export {
   RepostConfirmModal,
   DeleteConfirmModal1,
   CreateNewConfirmModal,
-  BussinessNeedHelpBookingDetailsModal,
   BussinessVerificationAppointmentwModal,
-  BussinessRateAppointmentModal,
   PreAppointmentFormModal,
   SendWaiverConfirmModal,
   SendWaiverModal,
