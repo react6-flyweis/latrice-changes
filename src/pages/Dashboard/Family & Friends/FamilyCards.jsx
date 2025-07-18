@@ -1,5 +1,5 @@
-import React from "react";
 import img from "../../../assets/images/dashboard/img36.jpg";
+import { ConfirmModal } from "../../../components/Modals/ConfirmModal";
 
 const FamilyCards = ({
   data,
@@ -81,6 +81,30 @@ const FamilyCards = ({
           >
             See Details
           </div>
+          {data.timeRemaining && isPending && (
+            <>
+              <ConfirmModal
+                text={`Confirm Payment & Connection?
+You’re about to pay $85 for Nicole White’s appointment and add her to your Family & Friends list.   To review the service details you are about to pay for, tap “See Details” in the previous screen before confirming.`}
+                onConfirm={() => {}}
+                confirmText="Confirm & Pay"
+              >
+                <button className="cursor-pointer border! border-[#2F2F2F] px-2 py-1 rounded-[4px] text-[15px] sm:text-[18px] text-charcoal">
+                  Decline & Reject Payment
+                </button>
+              </ConfirmModal>
+              <ConfirmModal
+                text={`Decline Connection & Payment Request?
+You’re about to decline Nicole White’s request to connect and reject the payment request for her appointment.She will be notified and removed from your pending Family & Friends list.`}
+                confirmText="Yes, Decline"
+                onConfirm={() => {}}
+              >
+                <button className="cursor-pointer border! border-[#2F2F2F] px-2 py-1 rounded-[4px] text-[15px] sm:text-[18px] text-charcoal">
+                  Accept & Pay Now
+                </button>
+              </ConfirmModal>
+            </>
+          )}
         </div>
         <div className="flex justify-end items-center gap-2 mt-2">
           {data.btn1 && (
