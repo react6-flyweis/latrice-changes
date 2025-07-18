@@ -23,7 +23,7 @@ export const ProfessionalBookingDetailsModal = ({
           </h2>
           <div className="flex items-center gap-2 absolute right-0 top-0">
             <p
-              className="sm:text-[20px] text-[15px] font-[600] text-charcoal font-rasa cursor-pointer"
+              className="sm:text-[20px] text-[15px] font-[600] text-charcoal font-rasa cursor-pointer underline!"
               onClick={handleOpenHelp}
             >
               Need Help?
