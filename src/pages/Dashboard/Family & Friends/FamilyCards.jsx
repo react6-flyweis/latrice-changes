@@ -27,8 +27,9 @@ const FamilyCards = ({
               </h6>
               <p className="font-[400] text-[15px] sm:text-[18px] text-charcoal font-sansation flex items-center gap-2">
                 {data.service && !isPending && (
-                  <p className="font-[400] text-[15px] sm:text-[18px] text-charcoal font-sansation">
-                    {data.service} · {data.paymentStatus}
+                  <p className="font-[400] text-[15px] sm:text-[18px] text-charcoal font-sansation flex gap-3">
+                    <span>{data.service}</span> ·{" "}
+                    <span>{data.paymentStatus}</span>
                   </p>
                 )}
                 {data.status}
