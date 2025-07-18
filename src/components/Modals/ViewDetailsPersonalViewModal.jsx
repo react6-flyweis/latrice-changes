@@ -2,21 +2,21 @@ import img36 from "../../assets/images/dashboard/img118.jpg";
 
 import { PiWarningCircleFill } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export const ViewDetailsPersonalViewModal = ({
   isOpen,
   onClose,
   handleOpenAppointmentform,
   handleOpenWaiverForm,
-  handleopensecond,
 }) => {
   if (!isOpen) return null;
 
   return (
-    <>
-      <div className="fixed inset-0 bg-black/50 z-50"></div>
-      <div className="fixed top-0 left-0 md:left-[260px] w-full md:w-[calc(100%-260px)] h-full flex items-center justify-center z-60">
-        <div className="bg-white rounded-[10px] w-full max-w-sm sm:max-w-xl p-3 shadow-xl h-[60vh] overflow-auto relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="absolute w-full h-full bg-black/50 z-50"></div>
+      <div className="w-full md:w-[calc(100%-260px)] h-full flex items-center justify-center z-60">
+        <div className="bg-white rounded-[10px] w-full max-w-sm sm:max-w-xl p-3 shadow-xl h-[70vh] overflow-auto relative">
           <div className="flex items-center gap-2">
             <IoClose
               className="cursor-pointer text-2xl text-[#000000]"
@@ -69,15 +69,18 @@ export const ViewDetailsPersonalViewModal = ({
                 <PiWarningCircleFill size={23} />
               </button>
             </div>
-            <p
-              onClick={handleopensecond}
-              className="cursor-pointer sm:text-[25px] text-[15px] font-[600] text-charcoal leading-[20px] font-rasa text-center underline"
-            >
-              See appointment
-            </p>
+            <div className="flex justify-center">
+              {" "}
+              <Link
+                to="/dashboard/appointments/current-bookings"
+                className="cursor-pointer sm:text-[25px] text-[15px] font-[600] text-charcoal leading-[20px] font-rasa text-center! underline!"
+              >
+                See appointment
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
