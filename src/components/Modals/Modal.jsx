@@ -1209,6 +1209,7 @@ const AddSelectTargetModal = ({
               <div>
                 <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-secondary flex items-center gap-1 mb-2">
                   Free parking spot?
+                  <RiInformationFill className="text-[#FF827F] text-lg" />
                 </label>
                 <div className="flex items-center gap-4">
                   <label className="flex items-center gap-1 cursor-pointer">
@@ -9204,6 +9205,7 @@ const RequestFormModal = ({ isOpen, onClose, handleopensuccessmodal }) => {
                 <div>
                   <label className="font-[700] font-sansation sm:text-[18px] text-[15px] text-secondary flex items-center gap-1 mb-2">
                     Free parking spot?
+                    <RiInformationFill className="text-[#FF827F] text-lg" />
                   </label>
                   <div className="flex items-center gap-4">
                     <label className="flex items-center gap-1 cursor-pointer">
