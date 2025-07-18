@@ -10,6 +10,7 @@ import {
 import IndependentDashboardLayout from "../../../components/DashbaordLayout/Independent Dashbaord";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { ProfessionalBookingDetailsModal } from "../../../components/Modals/ProfessionalBookingDetailsModal";
+import { ProfessionalNeedHelpBookingDetailsModal } from "../../../components/Modals/ProfessionalNeedHelpModal";
 
 const times = [
   "08:30 AM",
@@ -105,6 +106,8 @@ export default function Independenturrentbookings() {
   const [isModalOpen1, setModalOpen1] = useState(false);
   const [isModalOpen2, setModalOpen2] = useState(false);
   const [isModalOpen3, setModalOpen3] = useState(false);
+  const [isHelpModalOpen, setHelpModalOpen] = useState(false);
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("Customer Bookings");
 
@@ -126,6 +129,11 @@ export default function Independenturrentbookings() {
   const handlopenbackCancel = () => {
     setModalOpen(true);
     setModalOpen3(false);
+  };
+
+  const handleOpenNeedHelp = () => {
+    setModalOpen(false);
+    setHelpModalOpen(true);
   };
 
   return (
@@ -177,11 +185,20 @@ export default function Independenturrentbookings() {
         handleOpenSecond={handlopensecond}
         handleOpenCancel={handlopenCancel}
         showBlockOption={selectedLocation === "Customer Bookings"}
+        handleOpenHelp={handleOpenNeedHelp}
       />
       <BussinessChangeBookingDateTimeMOdal
         isOpen={isModalOpen1}
         onClose={() => setModalOpen1(false)}
         handlopenThird={handlopenThird}
+      />
+      <ProfessionalNeedHelpBookingDetailsModal
+        isOpen={isHelpModalOpen}
+        onClose={() => setHelpModalOpen(false)}
+        handleBack={() => {
+          setHelpModalOpen(false);
+          setModalOpen(true);
+        }}
       />
       <BussinessResheduleSuccessModal
         isOpen={isModalOpen2}
