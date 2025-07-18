@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdInformationCircle } from "react-icons/io";
 
 import BusinessOwnerDashboardLayout from "../../../components/DashbaordLayout/Business Owner";
@@ -8,7 +8,6 @@ import {
   SendWaiverModal,
   SendWaiverConfirmModal,
   ViewDetailsWaiverModal,
-  AppointmentFormModal,
 } from "../../../components/Modals/Modal";
 import { ViewDetailsPersonalViewModal } from "../../../components/Modals/ViewDetailsPersonalViewModal";
 
@@ -17,6 +16,7 @@ import img1 from "../../../assets/images/dashboard/img116.png";
 import img2 from "../../../assets/images/dashboard/img118.jpg";
 import img3 from "../../../assets/images/dashboard/img119.jpg";
 import { WaiverFormModal } from "../../../components/Modals/WaiverFormModal";
+import { AppointmentFormModal } from "../../../components/Modals/AppointmentFormModal";
 
 const appointments = [
   {
@@ -194,7 +194,7 @@ const BusinessCustomerForms = () => {
                 consent.
               </p>
 
-              <div className="w-full cursor-pointer mt-5 border-2 border-[#2F2F2F] px-2.5 py-4 rounded-[16px] sm:text-[20px] text-[15px] font-[600] text-charcoal text-center font-rasa ">
+              <div className="w-full cursor-pointer mt-5 border-2 border-[#2F2F2F] px-2.5 py-4 rounded-[16px] sm:text-[20px] text-[15px] font-[600] text-charcoal text-center font-rasa underline">
                 Heed help? Learn how
               </div>
             </div>
