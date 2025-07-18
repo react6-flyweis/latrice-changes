@@ -4,13 +4,6 @@ import img from "../../../assets/images/dashboard/img26.png";
 import ClientDashboardLayout from "../../../components/DashbaordLayout/Client Dashbaord";
 import { IoMdInformationCircle } from "react-icons/io";
 import FormsCards from "./FormsCards";
-import {
-  BookingCalendarModal,
-  SalonDetailsMakepayment,
-  SalonDetailsPaymenSuccessModal,
-  SalonDetailsReviewandConfirm,
-  WaitingBookingFormModal,
-} from "../../../components/Modals/Modal";
 import { AppointmentFormModal } from "../../../components/Modals/AppointmentFormModal";
 import { ViewDetailsPersonalViewModal } from "../../../components/Modals/ViewDetailsPersonalViewModal";
 import { WaiverFormModal } from "../../../components/Modals/WaiverFormModal";
@@ -40,11 +33,6 @@ const CustomerForms = () => {
   const [iscustomercard, setCustimerCard] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpen1, setModalOpen1] = useState(false);
-  const [isModalOpen2, setModalOpen2] = useState(false);
-  const [isModalOpen3, setModalOpen3] = useState(false);
-  const [isModalOpen4, setModalOpen4] = useState(false);
-  const [isModalOpen5, setModalOpen5] = useState(false);
-  const [isModalOpen6, setModalOpen6] = useState(false);
   const [waiverOpen, setWaiverOpen] = useState(false);
 
   useEffect(() => {
@@ -59,45 +47,6 @@ const CustomerForms = () => {
   const handleOpenAppointmentform = () => {
     setModalOpen(false);
     setModalOpen1(true);
-  };
-
-  const handleopensecond = () => {
-    setModalOpen(false);
-    setModalOpen2(true);
-  };
-
-  const handlebackfirst = () => {
-    setModalOpen1(false);
-    setModalOpen(true);
-  };
-  const handleopenThirdmodal = () => {
-    setModalOpen2(false);
-    setModalOpen3(true);
-  };
-
-  const handleopenforthmodal = () => {
-    setModalOpen3(false);
-    setModalOpen4(true);
-  };
-
-  const handlebackthirdmodal = () => {
-    setModalOpen4(false);
-    setModalOpen3(true);
-  };
-
-  const handleopenfivthhmodal = () => {
-    setModalOpen4(false);
-    setModalOpen5(true);
-  };
-
-  const handlebackforthmodal = () => {
-    setModalOpen5(false);
-    setModalOpen4(true);
-  };
-
-  const handleopenwaiting = () => {
-    setModalOpen2(false);
-    setModalOpen6(true);
   };
 
   const handleOpenWaiverForm = () => {
@@ -120,7 +69,6 @@ const CustomerForms = () => {
         onClose={() => setModalOpen(false)}
         handleOpenAppointmentform={handleOpenAppointmentform}
         handleOpenWaiverForm={handleOpenWaiverForm}
-        handleopensecond={handleopensecond}
       />
 
       <AppointmentFormModal
@@ -133,34 +81,34 @@ const CustomerForms = () => {
         onClose={() => setWaiverOpen(false)}
       />
 
-      <BookingCalendarModal
+      {/* <BookingCalendarModal
         isOpen={isModalOpen2}
         onClose={() => setModalOpen2(false)}
         handleopengofirst={handlebackfirst}
         handleopenSecondmodal={handleopenThirdmodal}
         handleopenwaiting={handleopenwaiting}
-      />
-      <SalonDetailsReviewandConfirm
+      /> */}
+      {/* <SalonDetailsReviewandConfirm
         isOpen={isModalOpen3}
         onClose={() => setModalOpen3(false)}
         handleopenthirdmodal={handleopenforthmodal}
         handlebacksecondmodal={handlebackthirdmodal}
-      />
-      <SalonDetailsMakepayment
+      /> */}
+      {/* <SalonDetailsMakepayment
         isOpen={isModalOpen4}
         onClose={() => setModalOpen4(false)}
         handleopentforthmodal={handleopenfivthhmodal}
         handlebackthirdmodal={handlebackforthmodal}
-      />
-      <SalonDetailsPaymenSuccessModal
+      /> */}
+      {/* <SalonDetailsPaymenSuccessModal
         isOpen={isModalOpen5}
         onClose={() => setModalOpen5(false)}
-      />
-      <WaitingBookingFormModal
+      /> */}
+      {/* <WaitingBookingFormModal
         isOpen={isModalOpen6}
         onClose={() => setModalOpen6(false)}
         // handlebackloginmodal={handlebackloginmodal}
-      />
+      /> */}
       {iscustomercard ? (
         <div className="grid grid-cols-2 gap-5 mt-2">
           {data.forms.map((form) => (
