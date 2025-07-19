@@ -463,6 +463,7 @@ export const FinalizeYourAppointment = ({
           setShowReviewModal(false);
           handleContinue && handleContinue();
         }}
+        handleEdit={() => setShowReviewModal(false)}
       />
     </>
   );

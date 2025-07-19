@@ -1,10 +1,12 @@
 import { IoArrowBack } from "react-icons/io5";
+import img6 from "../../assets/images/dashboard/img6.png";
 
 export const ReviewAndConfirmBookingModal = ({
   isOpen,
   onClose,
   bookingDetails,
   onMakePayment,
+  handleEdit,
 }) => {
   if (!isOpen) return null;
 
@@ -30,7 +32,7 @@ export const ReviewAndConfirmBookingModal = ({
 
   return (
     <div className="fixed inset-0 bg-opacity-40 z-40 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-lg max-w-md relative p-3 shadow-xl">
+      <div className="bg-white rounded-md h-full sm:max-h-[90vh] w-full sm:max-w-xl relative p-3 shadow-xl flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <IoArrowBack
             onClick={onClose}
@@ -38,66 +40,158 @@ export const ReviewAndConfirmBookingModal = ({
             size={25}
             className="cursor-pointer"
           />
-          <h2 className="sm:text-[30px] text-[20px] font-[600] text-center text-charcoal font-rasa">
+          <h2 className="sm:text-3xl text-lg font-[600] text-center text-charcoal font-rasa">
             Review and confirm
           </h2>
           <div className=""></div>
         </div>
-        <div className="space-y-2 text-[15px] font-sansation text-charcoal">
-          <div>
-            <b>Category:</b> {details.category}
+        <div className="space-y-4 text-xl font-sansation text-charcoal">
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Category:</b> {details.category}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("category")}
+            />
           </div>
-          <div>
-            <b>Service Name:</b> {details.serviceName}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Service Name:</b> {details.serviceName}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("serviceName")}
+            />
           </div>
-          <div>
-            <b>Date:</b> {details.date}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Date:</b> {details.date}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("date")}
+            />
           </div>
-          <div>
-            <b>Time:</b> {details.time}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Time:</b> {details.time}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("time")}
+            />
           </div>
-          <div>
-            <b>Cost:</b> ${details.cost.toFixed(2)}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Cost:</b> ${details.cost.toFixed(2)}
+            </span>
           </div>
-          <div>
-            <b>Extras:</b>{" "}
-            {details.extras && details.extras.length > 0
-              ? details.extras
-                  .map((e) => `${e.name} ($${e.price}, ${e.duration})`)
-                  .join(", ")
-              : "None"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Extras:</b>{" "}
+              {details.extras && details.extras.length > 0
+                ? details.extras
+                    .map((e) => `${e.name} ($${e.price}, ${e.duration})`)
+                    .join(", ")
+                : "None"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("extras")}
+            />
           </div>
-          <div>
-            <b>Special Event:</b>{" "}
-            {details.specialEvent && details.specialEvent.enabled
-              ? `Yes ($${details.specialEvent.price})`
-              : "No"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Special Event:</b>{" "}
+              {details.specialEvent && details.specialEvent.enabled
+                ? `Yes ($${details.specialEvent.price})`
+                : "No"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("specialEvent")}
+            />
           </div>
-          <div>
-            <b>Free parking spot:</b> {details.freeParking ? "Yes" : "No"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Free parking spot:</b> {details.freeParking ? "Yes" : "No"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("freeParking")}
+            />
           </div>
-          <div>
-            <b>Note:</b> {details.note}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Note:</b> {details.note}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("note")}
+            />
           </div>
-          <div>
-            <b>Provider drive to you?:</b>{" "}
-            {details.providerDrive ? "Yes" : "No"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Provider drive to you?:</b>{" "}
+              {details.providerDrive ? "Yes" : "No"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("providerDrive")}
+            />
           </div>
-          <div>
-            <b>Tip:</b>{" "}
-            {details.tip
-              ? `${details.tip.percent}% ($${details.tip.amount})`
-              : "N/A"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Tip:</b>{" "}
+              {details.tip
+                ? `${details.tip.percent}% ($${details.tip.amount})`
+                : "N/A"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("tip")}
+            />
           </div>
-          <div>
-            <b>Booking Fee:</b> $
-            {details.bookingFee ? details.bookingFee.toFixed(2) : "0.00"}
+          <div className="flex items-center justify-between gap-2">
+            <span>
+              <b>Booking Fee:</b> $
+              {details.bookingFee ? details.bookingFee.toFixed(2) : "0.00"}
+            </span>
+            <img
+              src={img6}
+              alt="edit"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => handleEdit && handleEdit("bookingFee")}
+            />
           </div>
-          <div className="font-bold mt-2">Total: ${details.total}</div>
+          <div className="font-extrabold text-2xl mt-4 flex items-center justify-between gap-2">
+            <span>Total: ${details.total}</span>
+          </div>
         </div>
-        <div className="flex items-center justify-end mt-4">
+        <div className="absolute left-0 bottom-0 w-full px-3 pb-3 bg-white flex items-center justify-end z-10">
           <button
-            className="bg-[#FFE6D8] text-[#FF827F] font-medium text-sm px-6 py-2 rounded-full shadow hover:bg-[#fbbcb5] transition w-full"
+            className="bg-[#FFE6D8] text-[#FF827F] font-medium px-6 text-lg py-3 rounded-full shadow hover:bg-[#fbbcb5] transition w-full"
             onClick={onMakePayment}
           >
             Make Payment
