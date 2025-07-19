@@ -5,7 +5,7 @@ export const MemberDetailsModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-opacity-40 z-30 flex items-center justify-center">
-      <div className="bg-white rounded-[10px] w-full sm:max-w-lg max-w-md relative p-3 shadow-xl">
+      <div className="bg-white rounded-md h-full w-full sm:max-w-xl sm:max-h-[90vh] relative p-3 shadow-xl">
         <div className="flex items-center justify-between mb-2">
           <IoArrowBack
             onClick={onClose}
@@ -18,7 +18,7 @@ export const MemberDetailsModal = ({ isOpen, onClose }) => {
           </h2>
           <div className=""></div>
         </div>
-        <div className="space-y-2 text-[15px] font-sansation text-charcoal">
+        <div className="space-y-2 text-lg font-sansation text-charcoal">
           <div>
             <b>Category:</b> Hair Services
           </div>
@@ -33,7 +33,7 @@ export const MemberDetailsModal = ({ isOpen, onClose }) => {
           </div>
           <div>
             <b>Service details:</b>
-            <div className="border rounded p-2 mt-1 text-sm ">
+            <div className="border rounded p-2 mt-1">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -57,8 +57,10 @@ export const MemberDetailsModal = ({ isOpen, onClose }) => {
             <b>Do you want the service provider to drive to you?:</b> No
           </div>
         </div>
-        <div className="flex items-center justify-end mt-4">
-          <button className="bg-[#FFE6D8] text-[#FF827F] font-medium text-sm px-6 py-2 rounded-full shadow hover:bg-[#fbbcb5] transition">
+        {/* Spacer to push the button to the bottom */}
+        <div className="flex-1" />
+        <div className="fixed left-0 right-0 bottom-0 sm:static sm:mt-4 flex items-center justify-center sm:justify-end bg-white sm:bg-transparent p-4 sm:p-0 z-40">
+          <button className="bg-[#FFE6D8] text-[#FF827F] font-semibold text-lg px-10 py-3 rounded-full shadow-lg hover:bg-[#fbbcb5] transition w-full sm:w-auto">
             Pay
           </button>
         </div>
